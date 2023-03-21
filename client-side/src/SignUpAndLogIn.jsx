@@ -24,7 +24,7 @@ export default function Register() {
 	}
 
 	return (
-		<div className='bg-gray-dark  h-screen flex items-center'>
+		<div className='bg-background  h-screen flex items-center'>
 			<form className='w-64 mx-auto mb-12' onSubmit={handleSubmit} action=''>
 				<input
 					value={username}
@@ -40,16 +40,16 @@ export default function Register() {
 					placeholder='password'
 					className='block w-full rounded-md p-2 mb-2 border'
 				/>
-				<button className='block w-full rounded-md p-2 bg-gray-light text-white hover:bg-blue-highlight transition-all'>
+				<button className='block w-full rounded-md p-2 bg-gray-light font-bold text-white hover:bg-message-user transition-all'>
 					{isLoginOrRegister === 'register' ? 'Register' : 'Login'}
 				</button>
-				<div className='text-white text-center mt-2'>
+				<div className='text-white text-center mt-2 font-bold'>
 					{isLoginOrRegister === 'register' ? (
 						<div>
 							Already a member ?{' '}
 							<button
 								onClick={() => setLoginOrRegister('login')}
-								className='hover:text-blue-highlight hover:underline'>
+								className='hover:text-blue-highlight '>
 								Log in
 							</button>
 						</div>
@@ -58,7 +58,7 @@ export default function Register() {
 							Don't have a account ?{' '}
 							<button
 								onClick={() => setLoginOrRegister('register')}
-								className='hover:text-blue-highlight hover:underline'>
+								className='hover:text-message-user '>
 								Sign up
 							</button>
 						</div>

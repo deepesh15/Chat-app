@@ -1,34 +1,30 @@
 import { generateFromString } from 'generate-avatar';
-export default function ContactCard({
-	username: name,
-	userId: id,
-	isSelected,
-	isOnline = false,
-}) {
-	console.log(isOnline);
+export default function ContactCard({ name, id, isSelected, isOnline }) {
 	return (
-		<div>
+		<div
+			className={
+				'flex items-center gap-2 p-3 rounded-xl cursor-pointer ' +
+				(isSelected
+					? 'bg-background shadow-lg'
+					: 'transition-all hover:bg-highlight hover:text-background')
+			}>
 			<div
 				className={
-					'flex items-center gap-2 p-3 border-b-2 border-gray-light cursor-pointer ' +
-					(isSelected
-						? 'bg-gray-light '
-						: 'transition-all hover:bg-blue-highlight')
+					'flex relative w-10 h-10 items-center rounded-full shadow-md shadow-gray-light  border-2 ' +
+					(isOnline ? 'border-lime-400' : 'border-slate-400')
 				}>
-				<div className='flex relative w-10 h-10 items-center rounded-full shadow-md shadow-gray-light  border-2 border-white'>
-					<img
-						className='rounded-full'
-						src={`data:image/svg+xml;utf8,${generateFromString(id)}`}
-					/>
-					<div
-						className={
-							'w-2 h-2 absolute rounded-full bottom-0 right-0 ' +
-							(isOnline ? ' bg-green-500' : ' bg-red-500')
-						}></div>
-				</div>
-
-				<div className='text-white'>{name}</div>
+				<img
+					className='rounded-full'
+					src={`data:image/svg+xml;utf8,${generateFromString(id)}`}
+				/>
+				<div
+					className={
+						'w-3 h-3 absolute rounded-full bottom-0 right-0 ' +
+						(isOnline ? ' bg-lime-400' : ' bg-slate-400')
+					}></div>
 			</div>
+
+			<div>{name}</div>
 		</div>
 	);
 }
